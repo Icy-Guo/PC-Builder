@@ -57,6 +57,11 @@ const compareModel2 = document.getElementById('compare-model2');
 // Download
 const btnDownload = document.getElementById('download');
 
+// Comment
+const rating = document.getElementById('rating');
+const comment = document.getElementById('comment');
+const btnShare = document.getElementById('share');
+
 // Load options
 async function loadOptions(jsonFile, selectElement, defaultOptionText) {
   try {
@@ -345,7 +350,7 @@ function downloadPDF() {
   doc.save('PC_Configuration_List.pdf');
 }
 
-btnDownload.addEventListener('click', function () {
+function checkFill(){
   if (
     chosenGpu.textContent !== '' &&
     chosenCpu.textContent !== '' &&
@@ -355,7 +360,12 @@ btnDownload.addEventListener('click', function () {
     chosenMotherboard.textContent !== '' &&
     chosenPowersupply.textContent !== '' &&
     chosenStorage.textContent !== ''
-  ) {
+  ) {return true}
+  else{return false}
+}
+
+btnDownload.addEventListener('click', function () {
+  if (checkFill()) {
     downloadPDF();
   } else {
     alert(
@@ -601,4 +611,41 @@ btnRec.addEventListener('click', function () {
       }
     })
     .catch(error => console.error('Error:', error));
+});
+
+btnShare.addEventListener('click', function () {
+  if(checkFill() && rating.value !=='' && comment.value !==''){
+    const data = { rating: rating.value, comment: comment.value, 
+      gpu: chosenGpu.textContent, 
+      cpu: chosenCpu.textContent, 
+      box: chosenCase.textContent, 
+      cooler: chosenCooler.textContent,
+      memory: chosenMemory.textContent,
+      motherboard: chosenMotherboard.textContent,
+      powersupply: chosenPowersupply.textContent,
+      storage: chosenStorage.textContent};
+    fetch('http://localhost:5000/submit-comment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+     })
+    .then(data => {
+      console.log('Success:', data.result);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    alert("Thank you for sharing your story!!!");
+  }
+  else{
+    alert("You can only make comment after you fill all the choices, rating and comment.");
+  }
 });
