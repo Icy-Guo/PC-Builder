@@ -43,48 +43,28 @@ const textRec = document.querySelectorAll('.tool__select-box p');
 const selectBoxes = document.querySelectorAll('.tool__select-box select');
 const costDisplay = document.querySelector('.tool__price-cost');
 
-// Fetch data
-fetch('gpu.json')
-  .then(response => response.json())
-  .then(data => {
-    gpuSelect.innerHTML = '<option>Choose GPU</option>';
+// Load options
+async function loadOptions(jsonFile, selectElement, defaultOptionText) {
+  try {
+    const response = await fetch(jsonFile);
+    const data = await response.json();
 
-    data.forEach(gpu => {
+    selectElement.innerHTML = `<option>${defaultOptionText}</option>`;
+
+    data.forEach(item => {
       const option = document.createElement('option');
-      option.value = gpu.Name;
-      option.textContent = gpu.Name;
-      gpuSelect.appendChild(option);
+      option.value = item.Name;
+      option.textContent = item.Name;
+      selectElement.appendChild(option);
     });
-  })
-  .catch(error => console.error('Error loading GPU data:', error));
+  } catch (error) {
+    console.error(`Error loading data from ${jsonFile}:`, error);
+  }
+}
 
-fetch('cpu.json')
-  .then(response => response.json())
-  .then(data => {
-    cpuSelect.innerHTML = '<option>Choose CPU</option>';
-
-    data.forEach(cpu => {
-      const option = document.createElement('option');
-      option.value = cpu.Name;
-      option.textContent = cpu.Name;
-      cpuSelect.appendChild(option);
-    });
-  })
-  .catch(error => console.error('Error loading GPU data:', error));
-
-fetch('ssd.json')
-  .then(response => response.json())
-  .then(data => {
-    storageSelect.innerHTML = '<option>Choose Storage</option>';
-
-    data.forEach(storage => {
-      const option = document.createElement('option');
-      option.value = storage.Name;
-      option.textContent = storage.Name;
-      storageSelect.appendChild(option);
-    });
-  })
-  .catch(error => console.error('Error loading Storage data:', error));
+loadOptions('gpu.json', gpuSelect, 'Choose GPU');
+loadOptions('cpu.json', cpuSelect, 'Choose CPU');
+loadOptions('ssd.json', storageSelect, 'Choose Storage');
 
 // Show rec
 btnRec.addEventListener('click', function () {
