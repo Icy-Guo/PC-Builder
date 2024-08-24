@@ -24,19 +24,19 @@ Throughout the development of PC Builder, we learned a lot about balancing user 
 
 # How to run 
 
-## Download All the files.
+## 1. Download All the files.
 
-## Run getData.py.
+## 2. Run getData.py.
 ```bash
 python getData.py
 ```
 
-## Run app.py.
+## 3. Run app.py.
 ```bash
 python app.py
 ```
 
-## Download live server and run it. 
+## 4. Download live server and run it. 
 Download live server extension in vscode, and then click "Go live" button on the bottom right corner.
 
 # What's next for PC Builder
