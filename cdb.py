@@ -13,7 +13,7 @@ conn = mysql.connector.connect(
 # 2. 创建游标对象，用于执行SQL查询
 cursor = conn.cursor()
 
-ls = ['cpu', 'gpu']
+ls = ['cpu', 'gpu', 'ssd']
 # 3. 执行SQL查询，获取数据
 for elem in ls:
     query = "SELECT * FROM " + elem  # 替换为你的表名

@@ -72,6 +72,20 @@ fetch('cpu.json')
   })
   .catch(error => console.error('Error loading GPU data:', error));
 
+fetch('ssd.json')
+  .then(response => response.json())
+  .then(data => {
+    storageSelect.innerHTML = '<option>Choose Storage</option>';
+
+    data.forEach(storage => {
+      const option = document.createElement('option');
+      option.value = storage.Name;
+      option.textContent = storage.Name;
+      storageSelect.appendChild(option);
+    });
+  })
+  .catch(error => console.error('Error loading Storage data:', error));
+
 // Show rec
 btnRec.addEventListener('click', function () {
   textRec.forEach(text => {
@@ -86,6 +100,7 @@ btnSubmit.addEventListener('click', function (e) {
 
   if (budgetValue && budgetValue >= 0) {
     budgetDisplay.textContent = `Budget: $${budgetValue}`;
+    checkBudgetExceeded();
   } else {
     alert('Please enter a valid budget.');
   }
@@ -136,8 +151,9 @@ let totalCost = 0;
 Promise.all([
   fetch('gpu.json').then(response => response.json()),
   fetch('cpu.json').then(response => response.json()),
+  fetch('ssd.json').then(response => response.json()),
 ])
-  .then(([gpuData, cpuData]) => {
+  .then(([gpuData, cpuData, ssdData]) => {
     function updateCost() {
       totalCost = 0;
 
@@ -147,7 +163,8 @@ Promise.all([
 
         selectedItem =
           gpuData.find(gpu => gpu.Name === selectedOption) ||
-          cpuData.find(cpu => cpu.Name === selectedOption);
+          cpuData.find(cpu => cpu.Name === selectedOption) ||
+          ssdData.find(ssd => ssd.Name === selectedOption);
 
         if (selectedItem) {
           totalCost += selectedItem.price;

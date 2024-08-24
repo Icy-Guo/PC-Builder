@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "WD SN850X M.2",
+        "price": 293.0,
+        "Benchmark": 522.0,
+        "Capacity": 4.0
+    },
+    {
+        "Name": "Samsung 970 Evo Plus",
+        "price": 250.0,
+        "Benchmark": 336.0,
+        "Capacity": 2.0
+    },
+    {
+        "Name": "Corsair Force",
+        "price": 119.0,
+        "Benchmark": 230.0,
+        "Capacity": 1.0
+    },
+    {
+        "Name": "HP EX950",
+        "price": 66.0,
+        "Benchmark": 255.0,
+        "Capacity": 0.5
+    }
+]
