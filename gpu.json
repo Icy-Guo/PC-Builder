@@ -1,0 +1,102 @@
+[
+    {
+        "Name": "Nvidia RTX 4090",
+        "price": 1599.0,
+        "Benchmark": 370.0,
+        "Cores": 13684.0,
+        "busWidth": 384.0,
+        "FP16": 82.58,
+        "Clock": 2235.0,
+        "Memory": 24.0
+    },
+    {
+        "Name": "Nvidia RTX 4080",
+        "price": 1199.0,
+        "Benchmark": 290.0,
+        "Cores": 9728.0,
+        "busWidth": 256.0,
+        "FP16": 28.74,
+        "Clock": 2205.0,
+        "Memory": 16.0
+    },
+    {
+        "Name": "Nvidia RTX 3090-Ti",
+        "price": 1999.0,
+        "Benchmark": 232.0,
+        "Cores": 10752.0,
+        "busWidth": 384.0,
+        "FP16": 40.0,
+        "Clock": 1560.0,
+        "Memory": 24.0
+    },
+    {
+        "Name": "AMD Radeon RX 7900 XT",
+        "price": 899.0,
+        "Benchmark": 220.0,
+        "Cores": 5376.0,
+        "busWidth": 320.0,
+        "FP16": 103.0,
+        "Clock": 1387.0,
+        "Memory": 20.0
+    },
+    {
+        "Name": "AMD Radeon RX 6950 XT",
+        "price": 1099.0,
+        "Benchmark": 199.0,
+        "Cores": 5120.0,
+        "busWidth": 256.0,
+        "FP16": 47.31,
+        "Clock": 1860.0,
+        "Memory": 16.0
+    },
+    {
+        "Name": "NVIDIA GeForce RTX 3080",
+        "price": 699.0,
+        "Benchmark": 187.0,
+        "Cores": 320.0,
+        "busWidth": 256.0,
+        "FP16": 29.77,
+        "Clock": 1440.0,
+        "Memory": 10.0
+    },
+    {
+        "Name": "NVIDIA GeForce RTX 3070 Ti",
+        "price": 599.0,
+        "Benchmark": 158.0,
+        "Cores": 6144.0,
+        "busWidth": 256.0,
+        "FP16": 21.75,
+        "Clock": 1575.0,
+        "Memory": 8.0
+    },
+    {
+        "Name": "NVIDIA GeForce RTX 4060 Ti",
+        "price": 499.0,
+        "Benchmark": 145.0,
+        "Cores": 4352.0,
+        "busWidth": 128.0,
+        "FP16": 22.06,
+        "Clock": 2310.0,
+        "Memory": 16.0
+    },
+    {
+        "Name": "AMD Radeon RX 6800",
+        "price": 579.0,
+        "Benchmark": 143.0,
+        "Cores": 3840.0,
+        "busWidth": 256.0,
+        "FP16": 32.33,
+        "Clock": 1700.0,
+        "Memory": 16.0
+    },
+    {
+        "Name": "NVIDIA GeForce RTX 3060 Ti",
+        "price": 399.0,
+        "Benchmark": 128.0,
+        "Cores": 4864.0,
+        "busWidth": 256.0,
+        "FP16": 16.2,
+        "Clock": 1410.0,
+        "Memory": 8.0
+    }
+]

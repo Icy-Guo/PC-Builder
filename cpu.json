@@ -1,0 +1,52 @@
+[
+    {
+        "Name": "Core i9-12900KS",
+        "price": "739",
+        "Benchmark": 119.0,
+        "Frequency": 3.4,
+        "Cores": 16.0,
+        "Threads": 24.0,
+        "processSize": 10.0,
+        "L3Cache": 30.0
+    },
+    {
+        "Name": "Core i5-13600K",
+        "price": "319",
+        "Benchmark": 122.0,
+        "Frequency": 3.5,
+        "Cores": 14.0,
+        "Threads": 20.0,
+        "processSize": 10.0,
+        "L3Cache": 24.0
+    },
+    {
+        "Name": "Core i9-13900H",
+        "price": "617",
+        "Benchmark": 107.0,
+        "Frequency": 2.6,
+        "Cores": 14.0,
+        "Threads": 20.0,
+        "processSize": 10.0,
+        "L3Cache": 24.0
+    },
+    {
+        "Name": "Ryzen 5 5600X",
+        "price": "434",
+        "Benchmark": 95.9,
+        "Frequency": 3.7,
+        "Cores": 6.0,
+        "Threads": 12.0,
+        "processSize": 7.0,
+        "L3Cache": 32.0
+    },
+    {
+        "Name": "Core i5-1340P",
+        "price": "353",
+        "Benchmark": 88.0,
+        "Frequency": 1.9,
+        "Cores": 12.0,
+        "Threads": 16.0,
+        "processSize": 10.0,
+        "L3Cache": 15.0
+    }
+]
