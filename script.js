@@ -48,6 +48,11 @@ const componentSelect = document.getElementById('component');
 const model1Select = document.getElementById('model1');
 const model2Select = document.getElementById('model2');
 
+const btnCompareModal = document.getElementById('compare-modal');
+const compareContainer = document.getElementById('compare-container');
+const compareModel1 = document.getElementById('compare-model1');
+const compareModel2 = document.getElementById('compare-model2');
+
 // Load options
 async function loadOptions(jsonFile, selectElement, defaultOptionText) {
   try {
@@ -246,8 +251,7 @@ componentSelect.addEventListener('change', function () {
     model2Select.innerHTML = '<option>Choose Model-2</option>';
   }
 
-  // 根据 component 的值加载相应的 JSON 文件
-  const jsonFile = `${component}.json`; // 假设 JSON 文件命名与 component 值一致
+  const jsonFile = `${component}.json`;
 
   fetch(jsonFile)
     .then(response => response.json())
@@ -256,7 +260,6 @@ componentSelect.addEventListener('change', function () {
       model1Select.innerHTML = '<option>Choose Model-1</option>';
       model2Select.innerHTML = '<option>Choose Model-2</option>';
 
-      // 将 JSON 数据中的 name 字段作为选项添加到 Model-1 和 Model-2
       data.forEach(item => {
         const option1 = document.createElement('option');
         option1.value = item.Name;
@@ -270,6 +273,56 @@ componentSelect.addEventListener('change', function () {
       });
     })
     .catch(error => console.error('Error loading JSON data:', error));
+});
+
+btnCompareModal.addEventListener('click', function () {
+  const selectedModel1 = model1Select.value;
+  const selectedModel2 = model2Select.value;
+
+  if (
+    componentSelect.value !== 'Choose Component' &&
+    selectedModel1 !== 'Choose Model-1' &&
+    selectedModel2 !== 'Choose Model-2'
+  ) {
+    const jsonFile = `${componentSelect.value}.json`;
+
+    fetch(jsonFile)
+      .then(response => response.json())
+      .then(data => {
+        const model1Data = data.find(item => item.Name === selectedModel1);
+        const model2Data = data.find(item => item.Name === selectedModel2);
+
+        compareModel1.innerHTML = '<h3>Model-1 Details</h3>';
+        compareModel2.innerHTML = '<h3>Model-2 Details</h3>';
+
+        Object.keys(model1Data).forEach(key => {
+          if (key !== 'Name') {
+            const model1Value = model1Data[key];
+            const model2Value = model2Data[key];
+
+            const model1Row = document.createElement('p');
+            model1Row.textContent = `${key}: ${model1Value}`;
+            compareModel1.appendChild(model1Row);
+
+            const model2Row = document.createElement('p');
+            model2Row.textContent = `${key}: ${model2Value}`;
+            compareModel2.appendChild(model2Row);
+
+            if (model1Value > model2Value) {
+              model1Row.classList.add('bigger');
+            } else if (model2Value > model1Value) {
+              model2Row.classList.add('bigger');
+            }
+          }
+        });
+
+        compareContainer.classList.remove('hidden');
+      })
+
+      .catch(error => console.error('Error comparing models:', error));
+  } else {
+    alert('Please select a Component, Model-1, and Model-2 to compare.');
+  }
 });
 
 ///////////////////////////////////////

@@ -297,7 +297,6 @@ h4 {
 .recommendations__content {
   display: none;
 
-  /* JUST PRESENTATIONAL */
   font-size: 1.7rem;
   padding: 2.5rem 7rem 6.5rem 7rem;
 }
@@ -641,6 +640,8 @@ h4 {
   padding: 5rem 6rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
   transition: all 0.5s;
   justify-content: center;
   align-items: center;
@@ -649,21 +650,41 @@ h4 {
 .modal-content {
   width: 100%;
   font-size: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-group {
   display: flex;
-  justify-content: space-between; /* 均匀分布所有元素 */
+  justify-content: space-between;
   align-items: center;
-  gap: 10px; /* 控制 label 和 select 之间的间距 */
+  gap: 10px;
 }
 
 .form-group label {
-  margin-right: 5px; /* 控制 label 和 select 之间的距离 */
+  margin-right: 5px;
 }
 
 .form-group select {
-  width: 150px; /* 设定 select 框的宽度 */
+  width: 150px;
+}
+
+.compare-container {
+  font-size: 2rem;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.compare-column {
+  width: 45%;
+}
+
+.compare-container .bigger {
+  color: var(--color-primary);
 }
 
 .overlay {
