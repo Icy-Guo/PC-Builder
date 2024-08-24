@@ -252,7 +252,6 @@ componentSelect.addEventListener('change', function () {
   fetch(jsonFile)
     .then(response => response.json())
     .then(data => {
-      
       model1Select.innerHTML = '<option>Choose Model-1</option>';
       model2Select.innerHTML = '<option>Choose Model-2</option>';
 
@@ -324,10 +323,10 @@ btnCompareModal.addEventListener('click', function () {
 // Download
 function downloadPDF() {
   //Create a new PDF file
-	const { jsPDF } = window.jspdf;
+  const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   //Add text to PDF
-  doc.text("Thank you for using PC-Builder, below is your choices.", 10, 10);
+  doc.text('Thank you for using PC-Builder, below is your choices.', 10, 10);
   doc.autoTable({
     head: [['Component', 'Model']],
     body: [
@@ -340,24 +339,28 @@ function downloadPDF() {
       ['Case', chosenCase.textContent],
       ['Power Supply', chosenPowersupply.textContent],
       ['TOTAL', '$' + totalCost],
-    ]
+    ],
   });
   // Save the PDF and prompt the download
   doc.save('PC_Configuration_List.pdf');
 }
 
-btnDownload.addEventListener('click', function(){
-  if (chosenGpu.textContent !== "" &&
-    chosenCpu.textContent !== "" &&
-    chosenCase.textContent !== "" &&
-    chosenCooler.textContent !== "" &&
-    chosenMemory.textContent !== "" &&
-    chosenMotherboard.textContent !== "" &&
-    chosenPowersupply.textContent !== "" &&
-    chosenStorage.textContent !== "") {
+btnDownload.addEventListener('click', function () {
+  if (
+    chosenGpu.textContent !== '' &&
+    chosenCpu.textContent !== '' &&
+    chosenCase.textContent !== '' &&
+    chosenCooler.textContent !== '' &&
+    chosenMemory.textContent !== '' &&
+    chosenMotherboard.textContent !== '' &&
+    chosenPowersupply.textContent !== '' &&
+    chosenStorage.textContent !== ''
+  ) {
     downloadPDF();
-  }else{
-    alert("You can only download your PC Configuration List after you have chosen all components.")
+  } else {
+    alert(
+      'You can only download your PC Configuration List after you have chosen all components.'
+    );
   }
 });
 
@@ -557,7 +560,6 @@ slider();
 btnRec.addEventListener('click', function () {
   const budgetValue = budgetInput.value;
 
-  // 检查 budgetValue 是否有效（例如非空且为数字）
   if (!budgetValue || isNaN(budgetValue)) {
     alert('Please enter a valid budget.');
     return;
@@ -572,7 +574,6 @@ btnRec.addEventListener('click', function () {
   })
     .then(response => {
       if (!response.ok) {
-        // 如果服务器返回了 HTTP 错误状态码（如 500）
         return response.json().then(error => {
           throw new Error(error.message);
         });
@@ -587,7 +588,6 @@ btnRec.addEventListener('click', function () {
         const selectedItemsSpans = document.querySelectorAll('.rec-item');
 
         if (items.length === selectedItemsSpans.length) {
-          // 将 items 列表的内容依次插入到对应的 span 中
           items.forEach((item, index) => {
             selectedItemsSpans[index].textContent = item;
           });
