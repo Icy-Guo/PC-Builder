@@ -461,6 +461,54 @@ h4 {
   margin-top: 2rem;
 }
 
+.share-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  position: relative;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  width: 100px;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.5rem;
+}
+
+#comment {
+  height: 100px;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.btn--share {
+  padding: 0.75rem 1.5rem;
+
+  border-radius: 4px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
 /* SLIDER */
 .slider {
   max-width: 100rem;
