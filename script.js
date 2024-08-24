@@ -40,7 +40,37 @@ const budgetDisplay = document.querySelector('.tool__price-budget');
 const btnRec = document.querySelector('.btn--rec');
 const textRec = document.querySelectorAll('.tool__select-box p');
 
-// btnRec
+const selectBoxes = document.querySelectorAll('.tool__select-box select');
+const costDisplay = document.querySelector('.tool__price-cost');
+
+// Fetch data
+fetch('gpu.json')
+  .then(response => response.json())
+  .then(data => {
+    gpuSelect.innerHTML = '<option>Choose GPU</option>';
+
+    data.forEach(gpu => {
+      const option = document.createElement('option');
+      option.value = gpu.Name;
+      option.textContent = gpu.Name;
+      gpuSelect.appendChild(option);
+    });
+  })
+  .catch(error => console.error('Error loading GPU data:', error));
+
+fetch('cpu.json')
+  .then(response => response.json())
+  .then(data => {
+    cpuSelect.innerHTML = '<option>Choose CPU</option>';
+
+    data.forEach(cpu => {
+      const option = document.createElement('option');
+      option.value = cpu.Name;
+      option.textContent = cpu.Name;
+      cpuSelect.appendChild(option);
+    });
+  })
+  .catch(error => console.error('Error loading GPU data:', error));
 
 // Show rec
 btnRec.addEventListener('click', function () {
@@ -99,6 +129,56 @@ updateChoice(memorySelect, chosenMemory);
 updateChoice(storageSelect, chosenStorage);
 updateChoice(caseSelect, chosenCase);
 updateChoice(powersupplySelect, chosenPowersupply);
+
+// Update cost
+let totalCost = 0;
+
+Promise.all([
+  fetch('gpu.json').then(response => response.json()),
+  fetch('cpu.json').then(response => response.json()),
+])
+  .then(([gpuData, cpuData]) => {
+    function updateCost() {
+      totalCost = 0;
+
+      selectBoxes.forEach(select => {
+        const selectedOption = select.value;
+        let selectedItem = null;
+
+        selectedItem =
+          gpuData.find(gpu => gpu.Name === selectedOption) ||
+          cpuData.find(cpu => cpu.Name === selectedOption);
+
+        if (selectedItem) {
+          totalCost += selectedItem.price;
+        }
+      });
+
+      costDisplay.textContent = `Cost: $${totalCost}`;
+
+      checkBudgetExceeded();
+    }
+
+    selectBoxes.forEach(select => {
+      select.addEventListener('change', updateCost);
+    });
+  })
+  .catch(error => console.error('Error loading data:', error));
+
+// Compare budget with cost
+function checkBudgetExceeded() {
+  const budgetValue = parseFloat(
+    budgetDisplay.textContent.replace('Budget: $', '')
+  );
+  const costValue = parseFloat(costDisplay.textContent.replace('Cost: $', ''));
+
+  console.log(costValue, budgetValue);
+  if (costValue > budgetValue) {
+    costDisplay.style.backgroundColor = '#ff585f';
+  } else {
+    costDisplay.style.backgroundColor = '#7abb54';
+  }
+}
 
 ///////////////////////////////////////
 // Modal window

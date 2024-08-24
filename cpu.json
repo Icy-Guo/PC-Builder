@@ -1,7 +1,7 @@
 [
     {
         "Name": "Core i9-12900KS",
-        "price": "739",
+        "price": 739.0,
         "Benchmark": 119.0,
         "Frequency": 3.4,
         "Cores": 16.0,
@@ -11,7 +11,7 @@
     },
     {
         "Name": "Core i5-13600K",
-        "price": "319",
+        "price": 319.0,
         "Benchmark": 122.0,
         "Frequency": 3.5,
         "Cores": 14.0,
@@ -21,7 +21,7 @@
     },
     {
         "Name": "Core i9-13900H",
-        "price": "617",
+        "price": 617.0,
         "Benchmark": 107.0,
         "Frequency": 2.6,
         "Cores": 14.0,
@@ -31,7 +31,7 @@
     },
     {
         "Name": "Ryzen 5 5600X",
-        "price": "434",
+        "price": 434.0,
         "Benchmark": 95.9,
         "Frequency": 3.7,
         "Cores": 6.0,
@@ -41,7 +41,7 @@
     },
     {
         "Name": "Core i5-1340P",
-        "price": "353",
+        "price": 353.0,
         "Benchmark": 88.0,
         "Frequency": 1.9,
         "Cores": 12.0,
