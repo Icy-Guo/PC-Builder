@@ -1,4 +1,5 @@
 'use strict';
+
 // select
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
@@ -80,13 +81,6 @@ loadOptions('memory.json', memorySelect, 'Choose Memory');
 loadOptions('storage.json', storageSelect, 'Choose Storage');
 loadOptions('box.json', caseSelect, 'Choose Case');
 loadOptions('powersupply.json', powersupplySelect, 'Choose Power Supply');
-
-// Show rec
-btnRec.addEventListener('click', function () {
-  textRec.forEach(text => {
-    text.classList.toggle('hidden');
-  });
-});
 
 // Update budget
 btnSubmit.addEventListener('click', function (e) {
@@ -209,7 +203,6 @@ function checkBudgetExceeded() {
   );
   const costValue = parseFloat(costDisplay.textContent.replace('Cost: $', ''));
 
-  console.log(costValue, budgetValue);
   if (costValue > budgetValue) {
     costDisplay.style.backgroundColor = '#ff585f';
   } else {
@@ -517,3 +510,52 @@ const slider = function () {
   });
 };
 slider();
+
+btnRec.addEventListener('click', function () {
+  const budgetValue = budgetInput.value;
+
+  // 检查 budgetValue 是否有效（例如非空且为数字）
+  if (!budgetValue || isNaN(budgetValue)) {
+    alert('Please enter a valid budget.');
+    return;
+  }
+
+  fetch('http://localhost:5000/submit-budget', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ budget: parseFloat(budgetValue) }),
+  })
+    .then(response => {
+      if (!response.ok) {
+        // 如果服务器返回了 HTTP 错误状态码（如 500）
+        return response.json().then(error => {
+          throw new Error(error.message);
+        });
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.status === 'success') {
+        // console.log('Result from Python script:', data.result);
+        // console.log(data.result.items_selected);
+        const items = data.result.items_selected;
+        const selectedItemsSpans = document.querySelectorAll('.rec-item');
+
+        if (items.length === selectedItemsSpans.length) {
+          // 将 items 列表的内容依次插入到对应的 span 中
+          items.forEach((item, index) => {
+            selectedItemsSpans[index].textContent = item;
+          });
+        } else {
+          console.error(
+            'The number of items does not match the number of select boxes.'
+          );
+        }
+      } else {
+        alert('Error: ' + data.message);
+      }
+    })
+    .catch(error => console.error('Error:', error));
+});

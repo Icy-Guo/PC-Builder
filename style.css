@@ -390,6 +390,11 @@ h4 {
   flex-shrink: 0;
 }
 
+.rec-item {
+  font-size: 1.7rem;
+  color: var(--color-primary);
+}
+
 .btn--compare {
   width: 50%;
   border: none;
