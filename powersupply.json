@@ -4,20 +4,29 @@
         "Price": 477.0,
         "Benchmark": 300.0,
         "Wattage": 1600.0,
-        "FanSize": 140.0
+        "FanSize": 140.0,
+        "Width": 130,
+        "Length": 110,
+        "Height": 70
     },
     {
         "Name": "EVGA SuperNOVA",
         "Price": 109.0,
         "Benchmark": 200.0,
         "Wattage": 850.0,
-        "FanSize": 135.0
+        "FanSize": 135.0,
+        "Width": 130,
+        "Length": 110,
+        "Height": 70
     },
     {
         "Name": "Cooler Master MWE",
         "Price": 53.0,
         "Benchmark": 100.0,
         "Wattage": 500.0,
-        "FanSize": 120.0
+        "FanSize": 120.0,
+        "Width": 130,
+        "Length": 110,
+        "Height": 70
     }
 ]
