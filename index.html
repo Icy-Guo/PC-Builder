@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="img/logo.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>PC Builder</title>
+
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav__logo-container">
+          <img
+            src="img/logo.png"
+            alt="Bankist logo"
+            class="nav__logo"
+            id="logo"
+          />
+          <div class="nav__title">PC Builder</div>
+        </div>
+
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a class="nav__link" href="#section--1">Features</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Recommendations</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--3">Interactive Tool</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--4">Testimonials</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#footer">About</a>
+          </li>
+          <!-- <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#"
+              >Compare</a
+            >
+          </li> -->
+        </ul>
+      </nav>
+
+      <div class="header__title">
+        <h1>
+          Start
+          <span class="highlight">Building</span>
+          your<br /><br />
+          <span class="highlight"> Personal Computer!</span>
+        </h1>
+        <h4>
+          New to PC building? No worries!<br />Our interactive tool is designed
+          to make PC assembly simple and enjoyable for everyone.
+        </h4>
+        <button class="btn--text btn--scroll-to" id="btn--scroll-to-1">
+          See our recommendations &DownArrow;
+        </button>
+        <button class="btn--text btn--scroll-to" id="btn--scroll-to-2">
+          Get started on your own &DownArrow;
+        </button>
+
+        <img
+          src="img/header.jpg"
+          class="header__img"
+          alt="Minimalist bank items"
+        />
+      </div>
+    </header>
+
+    <section class="section" id="section--1">
+      <div class="section__title">
+        <h2 class="section__description">Features</h2>
+        <h3 class="section__header">
+          Everything you need to build your personal computer.
+        </h3>
+      </div>
+
+      <div class="features">
+        <div class="features__feature">
+          <h5 class="features__header">Interactive Tool</h5>
+          <p>
+            Whether you're a novice or a pro, try our interactive tool! Watch
+            your dream PC come to life with real-time performance and pricing
+            updates.
+          </p>
+        </div>
+
+        <img src="img/feature1.png" alt="Computer" class="features__img" />
+
+        <img src="img/feature2.png" alt="VS" class="features__img" />
+
+        <div class="features__feature">
+          <h5 class="features__header">Comparison</h5>
+          <p>
+            Make smarter choices with our powerful comparison feature! Simply
+            click the "Compare" button, select two components, and instantly see
+            detailed data side-by-side.
+          </p>
+        </div>
+
+        <div class="features__feature">
+          <h5 class="features__header">Chat Bot</h5>
+          <p>
+            Get instant, expert advice with our AI chatbot! Whether you have
+            questions about choosing the right components or need help
+            troubleshooting, our chatbot is here 24/7 to guide you through the
+            PC building process.
+          </p>
+        </div>
+
+        <img src="img/feature3.png" alt="Chat Bot" class="features__img" />
+      </div>
+    </section>
+
+    <section class="section" id="section--2">
+      <div class="section__title">
+        <h2 class="section__description">Recommendations</h2>
+        <h3 class="section__header">
+          Need ideas on where to get started? Explore our recommendations!
+        </h3>
+      </div>
+
+      <div class="recommendations">
+        <div class="recommendations__tab-container">
+          <button
+            class="btn recommendations__tab recommendations__tab--1 recommendations__tab--active"
+            data-tab="1"
+          >
+            Entry 😃
+          </button>
+          <button
+            class="btn recommendations__tab recommendations__tab--2"
+            data-tab="2"
+          >
+            Excellent 😎
+          </button>
+          <button
+            class="btn recommendations__tab recommendations__tab--3"
+            data-tab="3"
+          >
+            Glorious 🤩
+          </button>
+        </div>
+        <div
+          class="recommendations__content recommendations__content--1 recommendations__content--active"
+        >
+          <img
+            src="img/low.png"
+            alt="Low Budget"
+            class="recommendations__image"
+          />
+
+          <h5 class="recommendations__header">Entry Level AMD Gaming Build</h5>
+          <p>
+            <strong>GPU: </strong>XFX Speedster SWFT 210 Radeon RX 6600 8 GB
+            Video Card<br />
+            <strong>CPU: </strong>
+            AMD Ryzen 5 5600 3.5 GHz 6-Core Processor<br />
+            <strong>Cooler: </strong>ARCTIC Liquid Freezer III A-RGB 48.82 CFM
+            Liquid CPU Cooler<br />
+            <strong>Motherboard: </strong>ASRock B550M-HDV Micro ATX AM4
+            Motherboard<br />
+            <strong>Memory: </strong>Patriot Viper Steel 16 GB (2 x 8 GB)
+            DDR4-3600 CL18 Memory<br />
+            <strong>Storage: </strong>Verbatim Vi3000 1 TB M.2-2280 PCIe 3.0 X4
+            NVME Solid State Drive<br />
+            <strong>Case: </strong>Fractal Design Pop Mini Air MicroATX Mid
+            Tower Case<br />
+            <strong>Powersupply: </strong>MSI MAG A650BN 650 W 80+ Bronze
+            Certified ATX Power Supply<br />
+          </p>
+        </div>
+
+        <div class="recommendations__content recommendations__content--2">
+          <img
+            src="img/medium.png"
+            alt="Medium Budget"
+            class="recommendations__image"
+          />
+
+          <h5 class="recommendations__header">
+            Excellent Intel Gaming/Streaming Build
+          </h5>
+          <p>
+            <strong>GPU: </strong>Inno3D Twin X2 GeForce RTX 4070 SUPER 12 GB
+            Video Card<br />
+            <strong>CPU: </strong>Intel Core i5-13500 2.5 GHz 14-Core
+            Processor<br />
+            <strong>Cooler: </strong>Thermalright Peerless Assassin 120 SE ARGB
+            66.17 CFM CPU Cooler<br />
+            <strong>Motherboard: </strong>
+            MSI PRO B760M-A WIFI DDR4 Micro ATX LGA1700 Motherboard<br />
+            <strong>Memory: </strong>Silicon Power GAMING 32 GB (2 x 16 GB)
+            DDR4-3200 CL16 Memory<br />
+            <strong>Storage: </strong>Silicon Power UD85 2 TB M.2-2280 PCIe 4.0
+            X4 NVME Solid State Drive<br />
+            <strong>Case: </strong>Lian Li LANCOOL 216 RGB ATX Mid Tower Case<br />
+            <strong>Powersupply: </strong>Thermaltake Toughpower GF1 PE 750 W
+            80+ Gold Certified Fully Modular ATX Power Supply<br />
+          </p>
+        </div>
+
+        <div class="recommendations__content recommendations__content--3">
+          <img
+            src="img/high.png"
+            alt="High Budget"
+            class="recommendations__image"
+          />
+
+          <h5 class="recommendations__header">
+            Glorious Intel Gaming/Streaming Build
+          </h5>
+          <p>
+            <strong>GPU: </strong>MSI VENTUS 3X E OC GeForce RTX 4090 24 GB
+            Video Card<br />
+            <strong>CPU: </strong>Intel Core i9-14900K 3.2 GHz 24-Core
+            Processor<br />
+            <strong>Cooler: </strong>ARCTIC Liquid Freezer III A-RGB 48.82 CFM
+            Liquid CPU Cooler<br />
+            <strong>Motherboard: </strong>
+            Gigabyte Z790 D ATX LGA1700 Motherboard<br />
+            <strong>Memory: </strong>Patriot Viper Venom 32 GB (2 x 16 GB)
+            DDR5-7000 CL32 Memory<br />
+            <strong>Storage: </strong>Kingston Fury Renegade 2 TB M.2-2280 PCIe
+            4.0 X4 NVME Solid State Drive<br />
+            <strong>Case: </strong>NZXT H9 Elite ATX Mid Tower Case<br />
+            <strong>Powersupply: </strong>Corsair RM1000x (2021) 1000 W 80+ Gold
+            Certified Fully Modular ATX Power Supply<br />
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section--3">
+      <div class="section__title section__title--tool">
+        <h2 class="section__description">Interactive Tool</h2>
+        <h3 class="section__header">
+          Use our interactive tool to build your own personal computer!
+        </h3>
+      </div>
+
+      <div class="budget-input-container">
+        <label for="budget">To beign, tell us your budget! 💰</label>
+        <input
+          type="number"
+          id="budget"
+          name="budget"
+          placeholder="Input your budget..."
+          required
+          min="0"
+        />
+        <button type="submit" class="btn btn--submit">Submit</button>
+        <br/>
+        <label>Need help? Try our AI Recommendation based on your budget! </label>
+        <button class="btn btn--submit">Recomendation</button>
+      </div>
+
+      <div class="tool">
+        <div class="tool__left-column">
+          <div class="tool__select-box">
+            <label for="GPU">GPU</label>
+            <p>RTX 4090</p>
+            <select id="GPU">
+              <option>Choose GPU</option>
+              <!-- Options here -->
+              <option value="GTX 4090">RTX 4090</option>
+              <option value="GTX 4080">RTX 4080</option>
+              <option value="GTX 4070">RTX 4070</option>
+            </select>
+          </div>
+
+          <div class="tool__select-box">
+            <label for="CPU">CPU</label>
+            <select id="CPU">
+              <option>Choose CPU</option>
+              <!-- Options here -->
+            </select>
+          </div>
+
+          <div class="tool__select-box">
+            <label for="Cooler">Cooler</label>
+            <select id="Cooler">
+              <option>Choose Cooler</option>
+              <!-- Options here -->
+            </select>
+          </div>
+
+          <div class="tool__select-box">
+            <label for="Motherboard">Motherboard</label>
+            <select id="Motherboard">
+              <option>Choose Motherboard</option>
+              <!-- Options here -->
+            </select>
+          </div>
+
+          <div class="tool__select-box">
+            <label for="Memory">Memory</label>
+            <select id="Memory">
+              <option>Choose Memory</option>
+              <!-- Options here -->
+            </select>
+          </div>
+
+          <div class="tool__select-box">
+            <label for="Storage">Storage</label>
+            <select id="Storage">
+              <option>Choose Storage</option>
+              <!-- Options here -->
+            </select>
+          </div>
+
+          <div class="tool__select-box">
+            <label for="Case">Case</label>
+            <select id="Case">
+              <option>Choose Case</option>
+              <!-- Options here -->
+            </select>
+          </div>
+
+          <div class="tool__select-box">
+            <label for="Powersupply">Powersupply</label>
+            <select id="Powersupply">
+              <option>Choose Powersupply</option>
+              <!-- Options here -->
+            </select>
+          </div>
+
+          <button class="btn btn--compare">Compare</button>
+        </div>
+
+        <div class="tool__right-column">
+          <h2>Your Choices</h2>
+          <div class="tool__choices">
+            <div class="tool__choice">GPU: <span id="chosen-gpu"></span></div>
+            <div class="tool__choice">CPU: <span id="chosen-cpu"></span></div>
+            <div class="tool__choice">
+              Cooler: <span id="chosen-cooler"></span>
+            </div>
+            <div class="tool__choice">
+              Motherboard: <span id="chosen-motherboard"></span>
+            </div>
+            <div class="tool__choice">
+              Memory: <span id="chosen-memory"></span>
+            </div>
+            <div class="tool__choice">
+              Storage: <span id="chosen-storage"></span>
+            </div>
+            <div class="tool__choice">Case: <span id="chosen-case"></span></div>
+            <div class="tool__choice">
+              Powersupply: <span id="chosen-powersupply"></span>
+            </div>
+          </div>
+
+          <div class="tool__price">
+            <div class="tool__price-budget">Budget:</div>
+            <div class="tool__price-cost">Cost:</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section--4">
+      <div class="section__title section__title--testimonials">
+        <h2 class="section__description">Testimonials</h2>
+        <h3 class="section__header">
+          Thousands of people have successfully built their dream PCs using our
+          website.
+        </h3>
+      </div>
+
+      <div class="slider">
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">
+              A Newbie's Dream: Building with Confidence
+            </h5>
+            <blockquote class="testimonial__text">
+              As someone new to PC building, I was worried about making
+              mistakes. This website not only helped me pick the perfect
+              components but also ensured I stayed within my budget. The
+              interactive tool is a game-changer!
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="img/user-1.jpg" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Bob Morris</h6>
+              <p class="testimonial__location">New York, USA</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">From Overwhelmed to Overjoyed</h5>
+            <blockquote class="testimonial__text">
+              Building my first gaming PC felt overwhelming, but this website
+              made it incredibly easy! The step-by-step guidance and
+              compatibility checks gave me the confidence to choose the right
+              parts. My rig runs like a dream, and I couldn't be happier with
+              the experience!
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="img/user-2.jpg" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">Jessica Green</h6>
+              <p class="testimonial__location">London, UK</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="testimonial">
+            <h5 class="testimonial__header">Great Helper for Building PC</h5>
+            <blockquote class="testimonial__text">
+              I've built a few PCs before, but this site took my experience to
+              the next level. The real-time performance stats and user-friendly
+              interface allowed me to optimize my build without any guesswork.
+              Highly recommend it to both beginners and seasoned builders!
+            </blockquote>
+            <address class="testimonial__author">
+              <img src="img/user-3.jpg" alt="" class="testimonial__photo" />
+              <h6 class="testimonial__name">James Davis</h6>
+              <p class="testimonial__location">Sydeny, Australia</p>
+            </address>
+          </div>
+        </div>
+
+        <button class="slider__btn slider__btn--left">&larr;</button>
+        <button class="slider__btn slider__btn--right">&rarr;</button>
+        <div class="dots"></div>
+      </div>
+    </section>
+
+    <footer class="footer" id="footer">
+      <p class="footer__title">About us</p>
+      <p class="footer__copyright">
+        We are a group of four passionate students from the University of
+        Sydney, united by our love for technology and innovation.<br />
+        This beautiful webiste is built in SYNCS HACK 2024.<br />
+        Group Members:
+        <a
+          class="footer__link"
+          href="https://www.linkedin.com/in/shihao-guo-319417316/"
+          >Shihao Guo</a
+        >,
+        <a
+          class="footer__link"
+          href="https://www.linkedin.com/in/kai-lian-a46ab931b/"
+          >Kai Lian</a
+        >,
+        <a
+          class="footer__link"
+          href="https://www.linkedin.com/in/robert-ji-086ab7236/"
+          >Robert Ji</a
+        >,
+        <a
+          class="footer__link"
+          href="https://www.linkedin.com/in/vincent-liu-6aa8bb1b3/"
+          >Vincent Liu</a
+        >
+      </p>
+    </footer>
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Not sure which one to choose?
+        <span class="highlight">Compare them!</span>
+      </h2>
+    </div>
+    <div class="overlay hidden"></div>
+  </body>
+</html>
