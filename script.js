@@ -1,5 +1,5 @@
 'use strict';
-
+// select
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
@@ -13,6 +13,92 @@ const nav = document.querySelector('.nav');
 const tabs = document.querySelectorAll('.recommendations__tab');
 const tabsContainer = document.querySelector('.recommendations__tab-container');
 const tabsContent = document.querySelectorAll('.recommendations__content');
+
+// Intereactive tool select
+const gpuSelect = document.getElementById('GPU');
+const cpuSelect = document.getElementById('CPU');
+const coolerSelect = document.getElementById('Cooler');
+const motherboardSelect = document.getElementById('Motherboard');
+const memorySelect = document.getElementById('Memory');
+const storageSelect = document.getElementById('Storage');
+const caseSelect = document.getElementById('Case');
+const powersupplySelect = document.getElementById('Powersupply');
+
+const chosenGpu = document.getElementById('chosen-gpu');
+const chosenCpu = document.getElementById('chosen-cpu');
+const chosenCooler = document.getElementById('chosen-cooler');
+const chosenMotherboard = document.getElementById('chosen-motherboard');
+const chosenMemory = document.getElementById('chosen-memory');
+const chosenStorage = document.getElementById('chosen-storage');
+const chosenCase = document.getElementById('chosen-case');
+const chosenPowersupply = document.getElementById('chosen-powersupply');
+
+const budgetInput = document.getElementById('budget');
+const btnSubmit = document.querySelector('.btn--submit');
+const budgetDisplay = document.querySelector('.tool__price-budget');
+
+const btnRec = document.querySelector('.btn--rec');
+const textRec = document.querySelectorAll('.tool__select-box p');
+
+// btnRec
+
+// Show rec
+btnRec.addEventListener('click', function () {
+  textRec.forEach(text => {
+    text.classList.toggle('hidden');
+  });
+});
+
+// Update budget
+btnSubmit.addEventListener('click', function (e) {
+  e.preventDefault();
+  const budgetValue = budgetInput.value;
+
+  if (budgetValue && budgetValue >= 0) {
+    budgetDisplay.textContent = `Budget: $${budgetValue}`;
+  } else {
+    alert('Please enter a valid budget.');
+  }
+});
+
+// Update tool
+function updateChoice(selectElement, displayElement) {
+  if (!selectElement.value.startsWith('Choose')) {
+    displayElement.textContent = selectElement.value;
+  } else {
+    displayElement.textContent = '';
+  }
+}
+
+gpuSelect.addEventListener('change', () => updateChoice(gpuSelect, chosenGpu));
+cpuSelect.addEventListener('change', () => updateChoice(cpuSelect, chosenCpu));
+coolerSelect.addEventListener('change', () =>
+  updateChoice(coolerSelect, chosenCooler)
+);
+motherboardSelect.addEventListener('change', () =>
+  updateChoice(motherboardSelect, chosenMotherboard)
+);
+memorySelect.addEventListener('change', () =>
+  updateChoice(memorySelect, chosenMemory)
+);
+storageSelect.addEventListener('change', () =>
+  updateChoice(storageSelect, chosenStorage)
+);
+caseSelect.addEventListener('change', () =>
+  updateChoice(caseSelect, chosenCase)
+);
+powersupplySelect.addEventListener('change', () =>
+  updateChoice(powersupplySelect, chosenPowersupply)
+);
+
+updateChoice(gpuSelect, chosenGpu);
+updateChoice(cpuSelect, chosenCpu);
+updateChoice(coolerSelect, chosenCooler);
+updateChoice(motherboardSelect, chosenMotherboard);
+updateChoice(memorySelect, chosenMemory);
+updateChoice(storageSelect, chosenStorage);
+updateChoice(caseSelect, chosenCase);
+updateChoice(powersupplySelect, chosenPowersupply);
 
 ///////////////////////////////////////
 // Modal window
