@@ -1,0 +1,23 @@
+[
+    {
+        "Name": "Noctua NH-D15",
+        "Price": 95.0,
+        "Benchmark": 300.0,
+        "HeatPipe": 6,
+        "FanSize": 140
+    },
+    {
+        "Name": "Dark Rock Pro",
+        "Price": 85.0,
+        "Benchmark": 200.0,
+        "HeatPipe": 7,
+        "FanSize": 125
+    },
+    {
+        "Name": "Cooler Master",
+        "Price": 40.0,
+        "Benchmark": 100.0,
+        "HeatPipe": 4,
+        "FanSize": 120
+    }
+]

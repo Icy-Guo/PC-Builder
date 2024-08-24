@@ -34,14 +34,19 @@ const chosenCase = document.getElementById('chosen-case');
 const chosenPowersupply = document.getElementById('chosen-powersupply');
 
 const budgetInput = document.getElementById('budget');
-const btnSubmit = document.querySelector('.btn--submit');
+const btnSubmit = document.getElementById('submit');
 const budgetDisplay = document.querySelector('.tool__price-budget');
 
-const btnRec = document.querySelector('.btn--rec');
+const btnRec = document.getElementById('recommendation');
 const textRec = document.querySelectorAll('.tool__select-box p');
 
 const selectBoxes = document.querySelectorAll('.tool__select-box select');
 const costDisplay = document.querySelector('.tool__price-cost');
+
+// Compare
+const componentSelect = document.getElementById('component');
+const model1Select = document.getElementById('model1');
+const model2Select = document.getElementById('model2');
 
 // Load options
 async function loadOptions(jsonFile, selectElement, defaultOptionText) {
@@ -64,7 +69,12 @@ async function loadOptions(jsonFile, selectElement, defaultOptionText) {
 
 loadOptions('gpu.json', gpuSelect, 'Choose GPU');
 loadOptions('cpu.json', cpuSelect, 'Choose CPU');
-loadOptions('ssd.json', storageSelect, 'Choose Storage');
+loadOptions('cooler.json', coolerSelect, 'Choose Cooler');
+loadOptions('motherboard.json', motherboardSelect, 'Choose Motherboard');
+loadOptions('memory.json', memorySelect, 'Choose Memory');
+loadOptions('storage.json', storageSelect, 'Choose Storage');
+loadOptions('box.json', caseSelect, 'Choose Case');
+loadOptions('powersupply.json', powersupplySelect, 'Choose Power Supply');
 
 // Show rec
 btnRec.addEventListener('click', function () {
@@ -131,35 +141,60 @@ let totalCost = 0;
 Promise.all([
   fetch('gpu.json').then(response => response.json()),
   fetch('cpu.json').then(response => response.json()),
-  fetch('ssd.json').then(response => response.json()),
+  fetch('cooler.json').then(response => response.json()),
+  fetch('motherboard.json').then(response => response.json()),
+  fetch('memory.json').then(response => response.json()),
+  fetch('storage.json').then(response => response.json()),
+  fetch('box.json').then(response => response.json()),
+  fetch('powersupply.json').then(response => response.json()),
 ])
-  .then(([gpuData, cpuData, ssdData]) => {
-    function updateCost() {
-      totalCost = 0;
+  .then(
+    ([
+      gpuData,
+      cpuData,
+      coolerData,
+      motherboardData,
+      memoryData,
+      storageData,
+      boxData,
+      powerSupplyData,
+    ]) => {
+      function updateCost() {
+        totalCost = 0;
+
+        selectBoxes.forEach(select => {
+          const selectedOption = select.value;
+          let selectedItem = null;
+
+          selectedItem =
+            gpuData.find(gpu => gpu.Name === selectedOption) ||
+            cpuData.find(cpu => cpu.Name === selectedOption) ||
+            coolerData.find(cooler => cooler.Name === selectedOption) ||
+            motherboardData.find(
+              motherboard => motherboard.Name === selectedOption
+            ) ||
+            memoryData.find(memory => memory.Name === selectedOption) ||
+            storageData.find(storage => storage.Name === selectedOption) ||
+            boxData.find(box => box.Name === selectedOption) ||
+            powerSupplyData.find(
+              powerSupply => powerSupply.Name === selectedOption
+            );
+
+          if (selectedItem) {
+            totalCost += selectedItem.Price;
+          }
+        });
+
+        costDisplay.textContent = `Cost: $${totalCost}`;
+
+        checkBudgetExceeded();
+      }
 
       selectBoxes.forEach(select => {
-        const selectedOption = select.value;
-        let selectedItem = null;
-
-        selectedItem =
-          gpuData.find(gpu => gpu.Name === selectedOption) ||
-          cpuData.find(cpu => cpu.Name === selectedOption) ||
-          ssdData.find(ssd => ssd.Name === selectedOption);
-
-        if (selectedItem) {
-          totalCost += selectedItem.price;
-        }
+        select.addEventListener('change', updateCost);
       });
-
-      costDisplay.textContent = `Cost: $${totalCost}`;
-
-      checkBudgetExceeded();
     }
-
-    selectBoxes.forEach(select => {
-      select.addEventListener('change', updateCost);
-    });
-  })
+  )
   .catch(error => console.error('Error loading data:', error));
 
 // Compare budget with cost
@@ -200,6 +235,41 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
   }
+});
+
+// Compare
+componentSelect.addEventListener('change', function () {
+  const component = componentSelect.value;
+  console.log(component);
+  if (component === 'Choose Component') {
+    model1Select.innerHTML = '<option>Choose Model-1</option>';
+    model2Select.innerHTML = '<option>Choose Model-2</option>';
+  }
+
+  // 根据 component 的值加载相应的 JSON 文件
+  const jsonFile = `${component}.json`; // 假设 JSON 文件命名与 component 值一致
+
+  fetch(jsonFile)
+    .then(response => response.json())
+    .then(data => {
+      // 清空之前的选项
+      model1Select.innerHTML = '<option>Choose Model-1</option>';
+      model2Select.innerHTML = '<option>Choose Model-2</option>';
+
+      // 将 JSON 数据中的 name 字段作为选项添加到 Model-1 和 Model-2
+      data.forEach(item => {
+        const option1 = document.createElement('option');
+        option1.value = item.Name;
+        option1.textContent = item.Name;
+        model1Select.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = item.Name;
+        option2.textContent = item.Name;
+        model2Select.appendChild(option2);
+      });
+    })
+    .catch(error => console.error('Error loading JSON data:', error));
 });
 
 ///////////////////////////////////////

@@ -1,0 +1,23 @@
+[
+    {
+        "Name": "G.SKILL",
+        "Price": 195.0,
+        "Benchmark": 195.0,
+        "Capacity": 64.0,
+        "Frequency": 6000.0
+    },
+    {
+        "Name": "Corsair",
+        "Price": 123.0,
+        "Benchmark": 183.0,
+        "Capacity": 32.0,
+        "Frequency": 6000.0
+    },
+    {
+        "Name": "Kinston",
+        "Price": 63.0,
+        "Benchmark": 141.0,
+        "Capacity": 16.0,
+        "Frequency": 5600.0
+    }
+]

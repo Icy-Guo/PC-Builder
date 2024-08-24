@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "NZXT H1",
+        "Price": 110.0,
+        "Benchmark": 0.0,
+        "Width": 133.0,
+        "Length": 133.0,
+        "Height": 349.0
+    },
+    {
+        "Name": "Fractal Design Meshhify",
+        "Price": 100.0,
+        "Benchmark": 0.0,
+        "Width": 395.0,
+        "Length": 212.0,
+        "Height": 440.0
+    },
+    {
+        "Name": "Corsair 5000D Airflow",
+        "Price": 165.0,
+        "Benchmark": 0.0,
+        "Width": 520.0,
+        "Length": 250.0,
+        "Height": 540.0
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "ASUS",
+        "Price": 393.0,
+        "Benchmark": 300.0,
+        "Phases": 20.0,
+        "Frequency": 6400.0,
+        "PCIe": 16.0
+    },
+    {
+        "Name": "Gigabyte",
+        "Price": 79.0,
+        "Benchmark": 100.0,
+        "Phases": 7.0,
+        "Frequency": 3200.0,
+        "PCIe": 16.0
+    },
+    {
+        "Name": "MSI",
+        "Price": 165.0,
+        "Benchmark": 200.0,
+        "Phases": 121.0,
+        "Frequency": 4400.0,
+        "PCIe": 16.0
+    }
+]

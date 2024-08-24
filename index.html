@@ -44,11 +44,6 @@
           <li class="nav__item">
             <a class="nav__link" href="#footer">About</a>
           </li>
-          <!-- <li class="nav__item">
-            <a class="nav__link nav__link--btn btn--show-modal" href="#"
-              >Compare</a
-            >
-          </li> -->
         </ul>
       </nav>
 
@@ -263,12 +258,14 @@
           required
           min="0"
         />
-        <button type="submit" class="btn btn--submit">Submit</button>
+        <button type="submit" class="btn btn--small" id="submit">Submit</button>
         <br />
         <label
           >Need help? Try our AI Recommendation based on your budget!
         </label>
-        <button class="btn btn--rec" id="recommendation">Recommendation</button>
+        <button class="btn btn--small" id="recommendation">
+          Recommendation
+        </button>
       </div>
 
       <div class="tool">
@@ -409,8 +406,8 @@
               Certified ATX Power Supply
               <br />
               <strong>Price: </strong>$920<br /><br />
-              <strong>Rating of using this website: </strong> ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
-              ⭐ ⭐ ⭐ <span class="star-emoji">⭐</span> 9/10 <br /><br />
+              <strong>Rating for this website: </strong> ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
+              ⭐ <span class="star-emoji">⭐</span> 9/10 <br /><br />
 
               As someone new to PC building, I was worried about making
               mistakes. This website not only helped me pick the perfect
@@ -445,8 +442,8 @@
               <strong>Power Supply: </strong>Corsair RM1000x (2021) 1000 W 80+
               Gold Certified Fully Modular ATX Power Supply<br />
               <strong>Price: </strong>$5100<br /><br />
-              <strong>Rating of using this website: </strong> ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
-              ⭐ ⭐ ⭐ <span class="star-emoji">⭐</span> 9/10 <br /><br />
+              <strong>Rating for this website: </strong> ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
+              ⭐ <span class="star-emoji">⭐</span> 9/10 <br /><br />
 
               Building my first gaming PC felt overwhelming, but this website
               made it incredibly easy! The step-by-step guidance and
@@ -483,8 +480,8 @@
               <strong>Power Supply: </strong>Thermaltake Toughpower GF1 PE 750 W
               80+ Gold Certified Fully Modular ATX Power Supply<br />
               <strong>Price: </strong>$2100 <br /><br />
-              <strong>Rating of using this website: </strong> ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
-              ⭐ ⭐ <span class="star-emoji">⭐ ⭐</span> 8/10 <br /><br />
+              <strong>Rating for this website: </strong> ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
+              <span class="star-emoji">⭐ ⭐</span> 8/10 <br /><br />
               I've built a few PCs before, but this site took my experience to
               the next level. The real-time performance stats and user-friendly
               interface allowed me to optimize my build without any guesswork.
@@ -507,10 +504,10 @@
     <footer class="footer" id="footer">
       <p class="footer__title">About us</p>
       <p class="footer__copyright">
-        We are a group of four passionate students from the University of
-        Sydney, united by our love for technology and innovation.<br />
-        This beautiful webiste is built in SYNCS HACK 2024.<br />
-        Group Members:
+        We are a team of four passionate students from the University of Sydney,
+        united by our love for technology and innovation.<br />
+        This beautiful webiste was built in SYNCS HACK 2024.<br />
+        Team Members:
         <a
           class="footer__link"
           href="https://www.linkedin.com/in/shihao-guo-319417316/"
@@ -540,6 +537,37 @@
         Not sure which one to choose?
         <span class="highlight">Compare them!</span>
       </h2>
+
+      <div class="modal-content">
+        <div class="form-group">
+          <label for="component">Component</label>
+          <select id="component">
+            <option>Choose Component</option>
+            <!-- Component options here -->
+            <option value="gpu">GPU</option>
+            <option value="cpu">CPU</option>
+            <option value="cooler">Cooler</option>
+            <option value="motherboard">Motherboard</option>
+            <option value="memory">Memory</option>
+            <option value="storage">Storage</option>
+            <option value="box">Case</option>
+            <option value="powersupply">Power Supply</option>
+          </select>
+
+          <label for="model1">Model-1</label>
+          <select id="model1">
+            <option>Choose Model-1</option>
+            <!-- Model1 options here -->
+          </select>
+
+          <label for="model2">Model-2</label>
+          <select id="model2">
+            <option>Choose Model-2</option>
+            <!-- Model2 options here -->
+          </select>
+          <button class="btn btn--small" id="compare-modal">Compare</button>
+        </div>
+      </div>
     </div>
     <div class="overlay hidden"></div>
   </body>

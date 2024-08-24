@@ -344,11 +344,7 @@ h4 {
   text-align: center;
 }
 
-.btn--submit {
-  padding: 0.3rem 1.7rem;
-}
-
-.btn--rec {
+.btn--small {
   padding: 0.3rem 1.7rem;
 }
 
@@ -646,6 +642,28 @@ h4 {
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
   transition: all 0.5s;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 100%;
+  font-size: 1.7rem;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between; /* 均匀分布所有元素 */
+  align-items: center;
+  gap: 10px; /* 控制 label 和 select 之间的间距 */
+}
+
+.form-group label {
+  margin-right: 5px; /* 控制 label 和 select 之间的距离 */
+}
+
+.form-group select {
+  width: 150px; /* 设定 select 框的宽度 */
 }
 
 .overlay {
@@ -681,18 +699,6 @@ h4 {
 .hidden {
   visibility: hidden;
   opacity: 0;
-}
-
-/* COOKIE MESSAGE */
-.cookie-message {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  background-color: white;
-  color: #bbb;
-  font-size: 1.5rem;
-  font-weight: 400;
 }
 
 .star-emoji {
