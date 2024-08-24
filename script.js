@@ -54,6 +54,9 @@ const compareContainer = document.getElementById('compare-container');
 const compareModel1 = document.getElementById('compare-model1');
 const compareModel2 = document.getElementById('compare-model2');
 
+// Download
+const btnDownload = document.getElementById('download');
+
 // Load options
 async function loadOptions(jsonFile, selectElement, defaultOptionText) {
   try {
@@ -249,7 +252,7 @@ componentSelect.addEventListener('change', function () {
   fetch(jsonFile)
     .then(response => response.json())
     .then(data => {
-      // 清空之前的选项
+      
       model1Select.innerHTML = '<option>Choose Model-1</option>';
       model2Select.innerHTML = '<option>Choose Model-2</option>';
 
@@ -315,6 +318,46 @@ btnCompareModal.addEventListener('click', function () {
       .catch(error => console.error('Error comparing models:', error));
   } else {
     alert('Please select a Component, Model-1, and Model-2 to compare.');
+  }
+});
+
+// Download
+function downloadPDF() {
+  //Create a new PDF file
+	const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  //Add text to PDF
+  doc.text("Thank you for using PC-Builder, below is your choices.", 10, 10);
+  doc.autoTable({
+    head: [['Component', 'Model']],
+    body: [
+      ['GPU', chosenGpu.textContent],
+      ['CPU', chosenCpu.textContent],
+      ['Cooler', chosenCooler.textContent],
+      ['Motherboard', chosenMotherboard.textContent],
+      ['Memory', chosenMemory.textContent],
+      ['Storage', chosenStorage.textContent],
+      ['Case', chosenCase.textContent],
+      ['Power Supply', chosenPowersupply.textContent],
+      ['TOTAL', '$' + totalCost],
+    ]
+  });
+  // Save the PDF and prompt the download
+  doc.save('PC_Configuration_List.pdf');
+}
+
+btnDownload.addEventListener('click', function(){
+  if (chosenGpu.textContent !== "" &&
+    chosenCpu.textContent !== "" &&
+    chosenCase.textContent !== "" &&
+    chosenCooler.textContent !== "" &&
+    chosenMemory.textContent !== "" &&
+    chosenMotherboard.textContent !== "" &&
+    chosenPowersupply.textContent !== "" &&
+    chosenStorage.textContent !== "") {
+    downloadPDF();
+  }else{
+    alert("You can only download your PC Configuration List after you have chosen all components.")
   }
 });
 

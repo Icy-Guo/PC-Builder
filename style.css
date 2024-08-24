@@ -457,6 +457,15 @@ h4 {
   background-color: var(--color-primary);
 }
 
+.btn--download {
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 2rem;
+}
+  
+
 /* SLIDER */
 .slider {
   max-width: 100rem;
