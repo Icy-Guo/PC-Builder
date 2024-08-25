@@ -24,7 +24,7 @@ Throughout the development of PC Builder, we learned a lot about balancing user 
 
 # How to run 
 
-## 1. Download All the files.
+## 1. Download All the files. Install all the needed Pyhton library.
 
 ## 2. Run getData.py.
 ```bash
